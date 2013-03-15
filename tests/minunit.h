@@ -5,7 +5,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "dbg.h"
+#include <dbg.h>
+#include <assert.h>
 
 #define mu_suite_start() char *message = NULL
 
@@ -15,6 +16,7 @@
 
 #define RUN_TESTS(name) \
   int main(int argc, char *argv[]) {		\
+  assert(argc >= 1);				\
   debug("----- RUNNING: %s", argv[0]);		\
   printf("-----\nRUNNING: %s\n", argv[0]);	\
   char *result = name();			\
